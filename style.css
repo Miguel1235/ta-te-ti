@@ -1,0 +1,68 @@
+body{
+  margin:0px;
+  background-color:tomato;
+}
+
+.title{
+  margin-top: 30px;
+  text-align: center;
+  font-size: 100px;
+}
+body{
+  font-family:'Chilanka';
+}
+
+.player{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selection{
+  padding: 3px;
+  text-align: center;
+  border:2px solid black;
+}
+
+.board .square{
+  border:2px solid black;
+  padding: 2px;
+  margin:3px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+hr{
+    margin:30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-style: groove;
+    border-color: black;;
+    border-width: 1px;
+}
+
+.info{
+  text-align: center;
+}
+
+.square{
+  background-color: tomato;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.board{
+  display: grid;
+  grid-template-columns: repeat(3,30px);
+  grid-template-rows: repeat(3,30px);
+  gap:10px 10px;
+  place-content: center;
+}
