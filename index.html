@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tateti</title>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <h1 class="title">ta-te-ti</h1>
 
-    <div class="players">
+<head>
+  <title>Tateti</title>
+  <link type="text/css" rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+</head>
 
-      <div class="player">
-        <div class="selection">
-          <label>Jugador </label><p class="inline">X</p>
-        </div>
-        <div>
-          <label>Victorias </label><p class="inline score">0</p><br/>
-          <label>Empates </label><p class="inline score">0</p><br/>
-          <label>Perdidas </label><p class="inline score">0</p><br/>
-        </div>
+<body>
+  <h1 class="title">ta-te-ti</h1>
+
+  <div class="players">
+
+    <div class="player">
+      <div class="selection">
+        <label>Jugador </label>
+        <p class="inline">X</p>
       </div>
-
-      <div class="player">
-        <div class="selection">
-          <label>Jugador </label><p class="inline">O</p>
-        </div>
-        <div>
-          <label>Victorias </label><p class="inline score">0</p><br/>
-          <label>Empates </label><p class="inline score">0</p><br/>
-          <label>Perdidas </label><p class="inline score">0</p><br/>
-        </div>
+      <div>
+        <label>Victorias </label>
+        <p class="inline score">0</p><br />
+        <label>Empates </label>
+        <p class="inline score">0</p><br />
+        <label>Perdidas </label>
+        <p class="inline score">0</p><br />
       </div>
     </div>
 
-    <div class="board">
-      <button class=square id="0"></button>
-      <button class=square id="1"></button>
-      <button class=square id="2"></button>
-      <button class=square id="3"></button>
-      <button class=square id="4"></button>
-      <button class=square id="5"></button>
-      <button class=square id="6"></button>
-      <button class=square id="7"></button>
-      <button class=square id="8"></button>
+    <div class="player">
+      <div class="selection">
+        <label>Jugador </label>
+        <p class="inline">O</p>
+      </div>
+      <div>
+        <label>Victorias </label>
+        <p class="inline score">0</p><br />
+        <label>Empates </label>
+        <p class="inline score">0</p><br />
+        <label>Perdidas </label>
+        <p class="inline score">0</p><br />
+      </div>
     </div>
+  </div>
 
-    <div class="info">
-      <hr/>
-      <p class="winner"></p>
-      <p class="current"></p>
-      <hr>
-    </div>
+  <div class="board">
+    <button class=square id="0"></button>
+    <button class=square id="1"></button>
+    <button class=square id="2"></button>
+    <button class=square id="3"></button>
+    <button class=square id="4"></button>
+    <button class=square id="5"></button>
+    <button class=square id="6"></button>
+    <button class=square id="7"></button>
+    <button class=square id="8"></button>
+  </div>
 
-    <script type="text/javascript" src="script.js"></script>
-  </body>
+  <div class="info">
+    <hr />
+    <p class="winner"></p>
+    <p class="current"></p>
+    <hr>
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

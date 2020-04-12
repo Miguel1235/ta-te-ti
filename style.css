@@ -1,79 +1,82 @@
-body{
-  font-family:'Chilanka';
-  margin:0px;
-  background-color:tomato;
+body {
+  font-family: 'Chilanka';
+  margin: 0px;
+  background-color: tomato;
 }
 
-.title{
+.title {
   margin-top: 30px;
   text-align: center;
   font-size: 120px;
 }
 
-.players{
+.players {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.player{
+.player {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.inline{
+.inline {
   display: inline-block;
 }
 
-.score{
+.score {
   font-weight: bolder;
 }
 
-.selection{
+.selection {
   text-align: center;
-  border:2px solid black;
+  border: 2px solid black;
   border-radius: 6px;
   padding: 0px 10px;
 }
 
-.square{
-  border:2px solid black;
+.square {
+  border: 2px solid black;
   padding: 2px;
-  margin:3px;
+  margin: 3px;
   width: 30px;
   height: 30px;
   display: inline-block;
 }
 
-.info{
+.info {
   text-align: center;
 }
-.info hr{
-    margin:30px;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-style: groove;
-    border-color: black;;
-    border-width: 1px;
+
+.info hr {
+  margin: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-style: groove;
+  border-color: black;
+  border-width: 1px;
 }
 
-.square{
+.square {
   background-color: tomato;
   text-align: center;
   font-size: 70px;
   cursor: pointer;
   border-radius: 5px;
   width: 90px;
-  height:90px;
+  height: 90px;
 }
-.board{
+
+.board {
   display: grid;
-  grid-template-columns: repeat(3,90px);
-  grid-template-rows: repeat(3,90px);
-  gap:10px 10px;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 10px 10px;
   place-content: center;
 }
-.winner{
+
+.winner {
   font-size: 25px;
 }
