@@ -1,4 +1,5 @@
 body{
+  font-family:'Chilanka';
   margin:0px;
   background-color:tomato;
 }
@@ -6,10 +7,13 @@ body{
 .title{
   margin-top: 30px;
   text-align: center;
-  font-size: 100px;
+  font-size: 120px;
 }
-body{
-  font-family:'Chilanka';
+
+.players{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .player{
@@ -18,19 +22,22 @@ body{
   align-items: center;
 }
 
-.stat{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.inline{
+  display: inline-block;
+}
+
+.score{
+  font-weight: bolder;
 }
 
 .selection{
-  padding: 3px;
   text-align: center;
   border:2px solid black;
+  border-radius: 6px;
+  padding: 0px 10px;
 }
 
-.board .square{
+.square{
   border:2px solid black;
   padding: 2px;
   margin:3px;
@@ -39,7 +46,10 @@ body{
   display: inline-block;
 }
 
-hr{
+.info{
+  text-align: center;
+}
+.info hr{
     margin:30px;
     margin-left: 5%;
     margin-right: 5%;
@@ -48,21 +58,22 @@ hr{
     border-width: 1px;
 }
 
-.info{
-  text-align: center;
-}
-
 .square{
   background-color: tomato;
   text-align: center;
-  font-size: 16px;
+  font-size: 70px;
   cursor: pointer;
   border-radius: 5px;
+  width: 90px;
+  height:90px;
 }
 .board{
   display: grid;
-  grid-template-columns: repeat(3,30px);
-  grid-template-rows: repeat(3,30px);
+  grid-template-columns: repeat(3,90px);
+  grid-template-rows: repeat(3,90px);
   gap:10px 10px;
   place-content: center;
+}
+.winner{
+  font-size: 25px;
 }

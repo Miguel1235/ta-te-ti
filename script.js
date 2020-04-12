@@ -1,34 +1,33 @@
 let playing=null
-const boardList=new Array(9).fill("")
 const stats={
-  player1:{
+  playerX:{
     win:0,
     draw:0,
     lost:0,
   },
-  player2:{
+  playerO:{
     win:0,
     draw:0,
     lost:0,
   }
 }
 
-// DOM
-const board=document.getElementsByClassName('board')[0]
-const current=document.getElementsByClassName('current')[0]
+const boardList=new Array(9).fill("")
+const board=document.getElementsByClassName("board")[0]
+const current=document.getElementsByClassName("current")[0]
 const winner=document.getElementsByClassName("winner")[0]
 
-// Aca descubri que puedo sacar los selectores con el inspect
-const winA= document.querySelector("body > div.stat > div:nth-child(1) > div:nth-child(2) > p:nth-child(1)")
-const winB= document.querySelector("body > div.stat > div:nth-child(2) > div:nth-child(2) > p:nth-child(1)")
-const drawA=document.querySelector("body > div.stat > div:nth-child(1) > div:nth-child(2) > p:nth-child(2)")
-const drawB=document.querySelector("body > div.stat > div:nth-child(2) > div:nth-child(2) > p:nth-child(2)")
-const lostA=document.querySelector("body > div.stat > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)")
-const lostB=document.querySelector("body > div.stat > div:nth-child(2) > div:nth-child(2) > p:nth-child(3)")
+const score=document.getElementsByClassName("score")
+const winX=score[0]
+const winO=score[3]
+const drawX=score[1]
+const drawO=score[4]
+const lostX=score[2]
+const lostO=score[5]
 
 const whoStart=()=>Math.round(Math.random())===1?"X":"O"
 const next=(curr)=>curr==="X"?"O":"X"
-const checkFull=(board)=>board.every(square=>square.length>0)
+const checkFull=(boardList)=>boardList.every(square=>square.length>0)
 const clearBoardList=()=>boardList.fill("")
 const clearBoard=()=>{
   for(let i=0;i<9;i++) board.children[i].innerHTML=""
@@ -42,24 +41,26 @@ const checkWinner=(board,icon)=>
     (board[2]===icon&&board[5]===icon&&board[8]===icon) ||
     (board[0]===icon&&board[4]===icon&&board[8]===icon) ||
     (board[2]===icon&&board[4]===icon&&board[6]===icon)
-const updateStats=(winner="Draw")=>{
-  if(winner==="X"){
-    stats.player1.win+=1
-    winA.innerHTML=`Victorias ${stats.player1.win}`
-    stats.player2.lost+=1
-    lostB.innerHTML=`Perdidas ${stats.player2.lost}`
-  }
-  else if(winner==="O"){
-    stats.player2.win+=1
-    winB.innerHTML=`Victorias ${stats.player2.win}`
-    stats.player1.lost+=1
-    lostA.innerHTML=`Perdidas ${stats.player1.lost}`
-  }
-  else{
-    stats.player1.draw+=1
-    drawB.innerHTML=`Empates ${stats.player1.draw}`
-    stats.player2.draw+=1
-    drawA.innerHTML=`Empates ${stats.player2.draw}`
+const updateStats=(winner)=>{
+  switch (winner) {
+    case "X":
+      stats.playerX.win+=1
+      stats.playerO.lost+=1
+      winX.innerHTML=stats.playerX.win
+      lostO.innerHTML=stats.playerO.lost
+      break;
+    case "O":
+      stats.playerO.win+=1
+      stats.playerX.lost+=1
+      winO.innerHTML=stats.playerO.win
+      lostX.innerHTML=stats.playerX.lost
+      break
+    default:
+      stats.playerX.draw+=1
+      stats.playerO.draw+=1
+      drawO.innerHTML=stats.playerX.draw
+      drawX.innerHTML=stats.playerO.draw
+      break;
   }
 }
 
@@ -78,30 +79,29 @@ const play=(event)=>{
 
       boardList[id]=playing
       playing=next(playing)
-      current.innerHTML=`Es el turno de ${playing}`
+      current.innerHTML=`Es el turno de <strong>${playing}</strong>`
 
-      // checkWinner
       let xWins=checkWinner(boardList,"X")
       let oWins=checkWinner(boardList,"O")
-      if(xWins||oWins){
-        winner.innerHTML=`El ganador es el jugador ${xWins?"X":"O"}`
-        winner.hidden=false
+      let isFull=checkFull(boardList)
+      if(xWins||oWins||isFull){
         clearBoardList()
         clearBoard()
+        if(isFull){
+          winner.innerHTML="El tablero esta lleno...empezando de vuelta"
+          winner.hidden=false
+          updateStats()
+        }
+        else{
+        winner.innerHTML=`El ganador es el jugador <strong>${xWins?"X":"O"}</strong>`
+        winner.hidden=false
         updateStats(xWins?"X":"O")
-      }
-      if(checkFull(boardList)===true){
-        winner.innerHTML="El tablero esta lleno...empezando de vuelta"
-        winner.hidden=false
-        clearBoardList()
-        clearBoard()
-        updateStats()
+        }
       }
     }
   }
 }
 
 playing=whoStart()
-current.innerHTML=`${playing} va a empezar`
-
+current.innerHTML=`<strong>${playing}</strong> va a empezar`
 board.addEventListener("click",play)
