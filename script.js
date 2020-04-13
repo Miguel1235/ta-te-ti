@@ -27,20 +27,20 @@ const lostO = score[5]
 
 const whoStart = () => Math.round(Math.random()) === 1 ? "X" : "O"
 const next = (curr) => curr === "X" ? "O" : "X"
-const checkFull = (boardList) => boardList.every(square => square.length > 0)
+const checkFull = () => boardList.every(square => square.length > 0)
 const clearBoardList = () => boardList.fill("")
 const clearBoard = () => {
   for (let i = 0; i < 9; i++) board.children[i].innerHTML = ""
 }
-const checkWinner = (board, icon) =>
-  (board[0] === icon && board[1] === icon && board[2] === icon) ||
-  (board[3] === icon && board[4] === icon && board[5] === icon) ||
-  (board[6] === icon && board[7] === icon && board[8] === icon) ||
-  (board[0] === icon && board[3] === icon && board[6] === icon) ||
-  (board[1] === icon && board[4] === icon && board[7] === icon) ||
-  (board[2] === icon && board[5] === icon && board[8] === icon) ||
-  (board[0] === icon && board[4] === icon && board[8] === icon) ||
-  (board[2] === icon && board[4] === icon && board[6] === icon)
+const checkWinner = (icon) =>
+  (boardList[0] === icon && boardList[1] === icon && boardList[2] === icon) ||
+  (boardList[3] === icon && boardList[4] === icon && boardList[5] === icon) ||
+  (boardList[6] === icon && boardList[7] === icon && boardList[8] === icon) ||
+  (boardList[0] === icon && boardList[3] === icon && boardList[6] === icon) ||
+  (boardList[1] === icon && boardList[4] === icon && boardList[7] === icon) ||
+  (boardList[2] === icon && boardList[5] === icon && boardList[8] === icon) ||
+  (boardList[0] === icon && boardList[4] === icon && boardList[8] === icon) ||
+  (boardList[2] === icon && boardList[4] === icon && boardList[6] === icon)
 const updateStats = (winner) => {
   switch (winner) {
     case "X":
@@ -66,7 +66,6 @@ const updateStats = (winner) => {
 
 const play = (event) => {
 
-  // Ocultamos a quien gano en la pasada anterior
   winner.hidden = true
 
   const {
@@ -85,9 +84,9 @@ const play = (event) => {
       playing = next(playing)
       current.innerHTML = `Es el turno de <strong>${playing}</strong>`
 
-      let xWins = checkWinner(boardList, "X")
-      let oWins = checkWinner(boardList, "O")
-      let isFull = checkFull(boardList)
+      let xWins = checkWinner("X")
+      let oWins = checkWinner("O")
+      let isFull = checkFull()
       if (xWins || oWins || isFull) {
         clearBoardList()
         clearBoard()
