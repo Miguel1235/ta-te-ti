@@ -71,11 +71,9 @@ const play = (event) => {
   const {
     id
   } = event.target
-  const {
-    tagName
-  } = event.path[0]
+  const className=event.target.className
 
-  if (tagName === "BUTTON") {
+  if (className === "square") {
     // Comprobamos que no esta marcada la casilla
     if (!boardList[id]) {
       event.target.innerHTML = playing
