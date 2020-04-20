@@ -1,1 +1,1 @@
-[Versión online](https://miguel1235.github.io/ta-te-ti/)
+[online](https://miguel1235.github.io/ta-te-ti/)
