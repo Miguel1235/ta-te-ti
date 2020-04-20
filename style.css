@@ -1,7 +1,7 @@
 body {
-  font-family: 'Chilanka';
+  font-family: 'Chilanka',Arial;
   margin: 0px;
-  background-color: tomato;
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 30%, rgba(148, 187, 233, 1) 100%);
 }
 
 .title {
@@ -61,7 +61,7 @@ body {
 }
 
 .square {
-  background-color: tomato;
+  background-color:rgba(238, 174, 202, 0.2);
   text-align: center;
   font-size: 70px;
   cursor: pointer;
